@@ -8,18 +8,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 360px;
     flex-direction: column;
     margin: 0 15px 40px 15px;
+    flex: 1 1 18%;
+    
 }
 .thumbnailContainer{
     position: relative;
-    width: 360px;
-    height: 202px;
+    width: 100%;
+    height: 100%;
+    
 }
 .thumbnailContainer .thumbnailImg{
-    width: 360px;
-    height: 202px;  
+    
     
 }
 .thumbnailContainer .thumbnailImg img{
@@ -34,7 +35,7 @@
     color: white;
     padding: 1px 4px;
     border-radius: 3px;
-    font-size: 13px;
+    font-size: 0.75rem;
     font-weight: 600;
 }
 
@@ -48,6 +49,7 @@
     margin-right: 15px;
     width: 40px;
     height: 40px;
+    flex-shrink: 0;
 }
 .bottomPart .channelLogo img{
     width: 100%;
@@ -61,13 +63,13 @@
 }
 .videoInfo .title{
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1rem;
     color: black;
 }
 .videoInfo .viewsDate{
     display: flex;
     flex-direction: row;
-    font-size: 14px;
+    font-size: 0.8rem;
  
 }
 .videoInfo .viewsDate .views{
@@ -75,6 +77,9 @@
 }
 .videoInfo .viewsDate .date{
     margin-left: 5px;
+}
+.videoInfo .channelName {
+    font-size: 0.9rem;
 }
 
 </style>
