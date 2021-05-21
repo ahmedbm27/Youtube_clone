@@ -30,15 +30,17 @@ align-items: center;
     height: 30px;
     padding: 13px;
     filter: invert(38%) sepia(65%) saturate(0%) hue-rotate(208deg) brightness(88%) contrast(104%); 
-
+    cursor: pointer;
 }
 .leftPart .logo{
     height: 24px;
     width: 80px;
     padding: 13px;
+    cursor: pointer;
 }
 .rightPart img{
-    padding: 13px;
+    margin: 13px;
+    cursor: pointer;
 }
 .rightPart .youtubeApp{
     width: 17px;
@@ -89,9 +91,7 @@ align-items: center;
     width: 100%;
     height: 32px;
     border-radius: 2px 0px 0px 2px;
-    border: 1px solid #CCCCCC;
-    
-    
+    border: 1px solid #CCCCCC;  
 }
 .searchBar .searchBtn{
     background-color: #F8F8F8;
@@ -105,7 +105,9 @@ align-items: center;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-
+}
+.searchBar .searchBtn:hover{
+    background-color: #e2e0e0;
 }
 .searchBar .searchBtn img{
     width: 20px;
