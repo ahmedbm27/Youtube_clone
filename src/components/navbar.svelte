@@ -6,7 +6,10 @@ const onFocus = e => {
 }
 
 const onBlur = e => e.target.parentElement.style.borderColor="#CCCCCC"
-
+export let opened = true;
+let openCloseMenu = () =>{
+opened = !opened;
+}
 </script>
 
 <style>
@@ -124,7 +127,11 @@ align-items: center;
 
     <div class="leftPart">
 
-        <img  class="sideNavBtn"src="imgs/icons/menu.svg" alt="menu">
+        <img  
+        class="sideNavBtn"
+        src="imgs/icons/menu.svg" 
+        alt="menu"
+        on:click={openCloseMenu}>
         <img class="logo" src="imgs/logo.svg" alt="logo">
 
     </div>

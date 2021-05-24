@@ -9,8 +9,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 0 15px 40px 15px;
+    margin: 24px 15px 40px 15px;
     flex: 1 1 18%;
+    
     
 }
 .thumbnailContainer{
