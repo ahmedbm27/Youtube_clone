@@ -30,9 +30,9 @@
 }
 .thumbnailContainer .time{
     position: absolute;
-    bottom:4px;
+    bottom:8px;
     right: 4px;
-    background-color: black;
+    background-color: rgba(0,0,0,.8);
     color: white;
     padding: 1px 4px;
     border-radius: 3px;

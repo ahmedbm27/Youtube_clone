@@ -150,6 +150,37 @@ hr{
             </div>
             <hr>
 
+            <div class="gaming menuItem">
+                <img src="imgs/icons/subs.svg" alt="">
+                <div class="title">Gaming</div>
+            </div>
+            <div class="live menuItem">
+                <img src="imgs/icons/subs.svg" alt="">
+                <div class="title">Live</div>
+            </div>
+            <div class="sports menuItem">
+                <img src="imgs/icons/subs.svg" alt="">
+                <div class="title">Sports</div>
+            </div>
+            <hr>
+            <div class="settings menuItem">
+                <img src="imgs/icons/subs.svg" alt="">
+                <div class="title">Settings</div>
+            </div>
+            <div class="reportHistory menuItem">
+                <img src="imgs/icons/subs.svg" alt="">
+                <div class="title">Report history</div>
+            </div>
+            <div class="help menuItem">
+                <img src="imgs/icons/subs.svg" alt="">
+                <div class="title">Help</div>
+            </div>
+            <div class="feedback menuItem">
+                <img src="imgs/icons/subs.svg" alt="">
+                <div class="title">Send feedback</div>
+            </div>
+            <hr>
+
 
         </div>
         
