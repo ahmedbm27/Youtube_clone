@@ -80,47 +80,68 @@ hr{
 .baseMenuSection{
     padding: 0 13px 0 0;
 }
-
+.opened{
+    display: none;
+}
+.menuItem.smallSideNav{
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 0 5px;
+    padding: 16px 5px 14px 5px;
+}
+.menuItem.smallSideNav img{
+    margin: 0;
+}
+.container.smallSideNav{
+    width: max-content;
+    min-width: max-content;
+}
+.baseMenuSection.smallSideNav{
+    padding: 0;
+}
 </style>
-{#if opened}
-<div class="container">
+
+<div class="container" class:smallSideNav={!opened}>
     <div class="logoMenuBtn">
         <div class="closeNav"><img src="imgs/icons/menu.svg" alt="ytb"></div>
         <div class="logo"><img src="imgs/logo.svg" alt="ytb"></div>
     </div>
-    <div class="baseMenuSection">
-        <div class="home menuItem">
+    <div class="baseMenuSection" class:smallSideNav={!opened} >
+        <div class="home menuItem" class:smallSideNav={!opened}>
             <img src="imgs/icons/home.svg" alt="">
-            <div class="title">Home</div>
+            <div class="title" >Home</div>
         </div>
-        <div class="explore menuItem">
+        <div class="explore menuItem" class:smallSideNav={!opened}>
             <img src="imgs/icons/explore.svg" alt="">
-            <div class="title">Explore</div>
+            <div class="title" >Explore</div>
         </div>
-        <div class="subs menuItem">
+        <div class="subs menuItem" class:smallSideNav={!opened}>
             <img src="imgs/icons/subs.svg" alt="">
-            <div class="title">Subscriptions</div>
+            <div class="title" >Subscriptions</div>
         </div>
-        <hr>
+        <hr class:opened={!opened}>
         <div class="librarySection">
-            <div class="library menuItem">
+            <div class="library menuItem" class:smallSideNav={!opened}>
                 <img src="imgs/icons/library.svg" alt="">
-                <div class="title">Library</div>
+                <div class="title" >Library</div>
             </div>
 
-            <div class="history menuItem">
+            <div class="history menuItem" class:opened={!opened}>
                 <img src="imgs/icons/history.svg" alt="">
                 <div class="title">History</div>
             </div>
-            <div class="yourVideos menuItem">
+            <div class="yourVideos menuItem" class:opened={!opened}>
                 <img src="imgs/icons/yourVideos.svg" alt="">
                 <div class="title">Your videos</div>
             </div>
-            <div class="watchLater menuItem">
+            <div class="watchLater menuItem" class:opened={!opened}>
                 <img src="imgs/icons/watchLater.svg" alt="">
                 <div class="title">Watch later</div>
             </div>
-            <div class="likedVideos menuItem">
+            <div class="likedVideos menuItem" class:opened={!opened}>
                 <img src="imgs/icons/likedVideos.svg" alt="">
                 <div class="title">Liked videos</div>
             </div>
@@ -144,42 +165,43 @@ hr{
             <div 
             class="showMore menuItem" 
             class:hidden
+            class:opened={!opened}
             on:click={()=>hidden=!hidden}>
                 <img src="imgs/icons/showMore.svg" alt="">
                 <div class="title">Show more</div>
             </div>
-            <hr>
+            <hr class:opened={!opened}>
 
-            <div class="gaming menuItem">
+            <div class="gaming menuItem" class:opened={!opened}>
                 <img src="imgs/icons/subs.svg" alt="">
                 <div class="title">Gaming</div>
             </div>
-            <div class="live menuItem">
+            <div class="live menuItem" class:opened={!opened}>
                 <img src="imgs/icons/subs.svg" alt="">
                 <div class="title">Live</div>
             </div>
-            <div class="sports menuItem">
+            <div class="sports menuItem" class:opened={!opened}>
                 <img src="imgs/icons/subs.svg" alt="">
                 <div class="title">Sports</div>
             </div>
-            <hr>
-            <div class="settings menuItem">
+            <hr class:opened={!opened}>
+            <div class="settings menuItem" class:opened={!opened}>
                 <img src="imgs/icons/subs.svg" alt="">
                 <div class="title">Settings</div>
             </div>
-            <div class="reportHistory menuItem">
+            <div class="reportHistory menuItem" class:opened={!opened}>
                 <img src="imgs/icons/subs.svg" alt="">
                 <div class="title">Report history</div>
             </div>
-            <div class="help menuItem">
+            <div class="help menuItem" class:opened={!opened}>
                 <img src="imgs/icons/subs.svg" alt="">
                 <div class="title">Help</div>
             </div>
-            <div class="feedback menuItem">
+            <div class="feedback menuItem" class:opened={!opened}>
                 <img src="imgs/icons/subs.svg" alt="">
                 <div class="title">Send feedback</div>
             </div>
-            <hr>
+            <hr class:opened={!opened}>
 
 
         </div>
@@ -187,4 +209,3 @@ hr{
         
     </div>
 </div>
-{/if}

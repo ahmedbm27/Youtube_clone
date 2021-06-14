@@ -1,6 +1,7 @@
 
 <script>
-
+export let video;
+export let opened;
 </script>
 
 <style>
@@ -10,7 +11,7 @@
     align-items: center;
     flex-direction: column;
     margin: 24px 15px 40px 15px;
-    flex: 1 1 18%;
+    flex: 1 1 20%;
     
     
 }
@@ -82,21 +83,23 @@
 .videoInfo .channelName {
     font-size: 0.9rem;
 }
-
+.container.smallSideNav{
+    flex: 1 1 18%;
+}
 </style>
 
-<div class="container">
+<div class="container" class:smallSideNav={!opened}>
 
     <div class="thumbnailContainer">
-        <div class="thumbnailImg"><img src="imgs/videos/thumbnails/1.jpg" alt="thumbnail"></div>
+        <div class="thumbnailImg"><img src="{video.snippet.thumbnails.medium.url}" alt="thumbnail"></div>
         <div class="time">3:34</div>
     </div>
 
     <div class="bottomPart">
         <div class="channelLogo"><img src="imgs/videos/thumbnails/1.jpg" alt="logo"></div>
         <div class="videoInfo">
-            <div class="title">unboxing new laptop 2021</div>
-            <div class="channelName">ZeeMe</div>
+            <div class="title">{video.snippet.title}</div>
+            <div class="channelName">{video.snippet.channelTitle}</div>
             <div class="viewsDate">
                 <div class="views">1.6M views</div>•
                 <div class="date">1 month ago</div>
