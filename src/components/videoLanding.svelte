@@ -1,16 +1,82 @@
-
 <script>
-export let video;
-export let opened;
+    export let video;
+    export let opened;
+
+    
+
+    let convertStats = () => {
+        let views = parseInt(video.statistics.viewCount);
+        if (views>= 10000000) {
+            views<= 10999999
+                ? (views= views.toString().slice(0, 2) + "M")
+                : (views= views.toString().slice(0, 2) + "M");
+        }
+        if (views>= 1000000) {
+            views<= 1009999
+                ? (views= views.toString().slice(0, 1) + "M")
+                : (views=
+                      views.toString().slice(0, 1) +
+                      "." +
+                      views.toString().slice(1, 2) +
+                      "M");
+        }
+        if (views>= 100000) {
+            views<= 100999
+                ? (views= views.toString().slice(0, 3) + "k")
+                : (views= views.toString().slice(0, 3) + "k");
+        }
+
+        if (views>= 10000) {
+            views<= 10999
+                ? (views= views.toString().slice(0, 2) + "k")
+                : (views= views.toString().slice(0, 2) + "k");
+        }
+
+        if (views>= 1000) {
+            views<= 1099
+                ? (views= views.toString()[0] + "k")
+                : (views= views.toString()[0] + "." + views.toString()[1] + "k");
+        }
+
+        return views
+    };
+
+
+    let views = convertStats();
 </script>
 
+<div class="container" class:smallSideNav={!opened}>
+    <div class="thumbnailContainer">
+        <div class="thumbnailImg">
+            <img src={video.thumbnails.medium.url} alt="thumbnail" />
+        </div>
+        <div class="time">3:34</div>
+    </div>
+
+    <div class="bottomPart">
+        <div class="channelLogo">
+            <img src="imgs/videos/thumbnails/1.jpg" alt="logo" />
+        </div>
+        <div class="videoInfo">
+            <div class="title">{video.title}</div>
+            <div class="channelName">{video.channelTitle}</div>
+            <div class="viewsDate">
+                <div class="views">{views} views</div>
+                •
+                <div class="date">1 month ago</div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <style>
+
 .container{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 24px 15px 40px 15px;
+    margin: 0px 15px 30px 15px;
     flex: 1 1 20%;
     
     
@@ -40,7 +106,6 @@ export let opened;
     font-size: 0.75rem;
     font-weight: 600;
 }
-
 .bottomPart{
     display: flex;
     flex-direction: row;
@@ -88,24 +153,4 @@ export let opened;
 }
 </style>
 
-<div class="container" class:smallSideNav={!opened}>
-
-    <div class="thumbnailContainer">
-        <div class="thumbnailImg"><img src="{video.snippet.thumbnails.medium.url}" alt="thumbnail"></div>
-        <div class="time">3:34</div>
-    </div>
-
-    <div class="bottomPart">
-        <div class="channelLogo"><img src="imgs/videos/thumbnails/1.jpg" alt="logo"></div>
-        <div class="videoInfo">
-            <div class="title">{video.snippet.title}</div>
-            <div class="channelName">{video.snippet.channelTitle}</div>
-            <div class="viewsDate">
-                <div class="views">1.6M views</div>•
-                <div class="date">1 month ago</div>
-            </div>
-        </div>
-    </div>
-
-</div>
 
