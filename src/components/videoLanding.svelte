@@ -1,4 +1,7 @@
 <script>
+import { validate_slots } from "svelte/internal";
+
+
     export let video;
     export let opened;
 
@@ -42,16 +45,77 @@
     };
 
 
+    let getDate = () =>{
+        let current = firebase.firestore.Timestamp.now().toDate() 
+        let publishDate =  new Date(video.publishTime)
+        let difference = (current.getTime() - publishDate.getTime()) / (1000 * 3600 * 24) // in days
+        if(difference > 365){
+            difference = ~~(difference/365) 
+            difference > 1 ?  difference = difference +" years" : difference = difference + " year"
+            return difference
+        }
+        if(difference > 30){
+            difference = ~~(difference/30)
+            difference > 1 ?  difference = difference +" months" : difference = difference + " month"
+            return difference
+        }
+
+        difference = ~~difference
+        difference > 1 ?  difference = difference +" days" : difference = difference + " day"
+        return difference
+        
+    }
+
+    function convert_time() {
+    
+    let a = video.duration.match(/\d+/g)
+    let duration;
+
+    if(a.length == 3) {
+        if(parseInt(a[1]) < 10 ){
+            if (parseInt(a[2]) < 10){
+                duration = parseInt(a[0]) + ":0" + parseInt(a[1]) + ":0" + parseInt(a[2]);
+            }else{
+                duration = parseInt(a[0]) + ":0" + parseInt(a[1]) + ":" + parseInt(a[2]);
+            }
+        }else{
+            if (parseInt(a[2]) < 10){
+                duration = parseInt(a[0]) + ":" + parseInt(a[1]) + ":0" + parseInt(a[2]);
+            }else{
+                duration = parseInt(a[0]) + ":" + parseInt(a[1]) + ":" + parseInt(a[2]);
+            }
+        }
+
+    }
+
+    if(a.length == 2) {
+        if(parseInt(a[1]) < 10 ){
+            duration = parseInt(a[0]) + ":0" + parseInt(a[1])
+        }else{
+            duration = parseInt(a[0]) + ":" + parseInt(a[1])
+        }
+    }
+
+    if(a.length == 1) {
+        duration = "0:" + parseInt(a[0])
+    }
+    console.log(duration);
+    return duration
+}
+    let videoTime = convert_time()
+    let publishDate =  getDate()
     let views = convertStats();
 </script>
 
-<div class="container" class:smallSideNav={!opened}>
+<a href="/watch?v={video.id}"  class="container" class:smallSideNav={!opened}>
+   
     <div class="thumbnailContainer">
         <div class="thumbnailImg">
             <img src={video.thumbnails.medium.url} alt="thumbnail" />
         </div>
-        <div class="time">3:34</div>
+        <div class="time">{videoTime}</div>
     </div>
+   
 
     <div class="bottomPart">
         <div class="channelLogo">
@@ -63,11 +127,11 @@
             <div class="viewsDate">
                 <div class="views">{views} views</div>
                 •
-                <div class="date">1 month ago</div>
+                <div class="date">{publishDate} ago</div>
             </div>
         </div>
     </div>
-</div>
+</a>
 
 <style>
 
@@ -78,8 +142,16 @@
     flex-direction: column;
     margin: 0px 15px 30px 15px;
     flex: 1 1 20%;
+    text-decoration: none; 
     
-    
+}
+
+.videoInfo .title{
+    cursor: auto;
+    -webkit-user-select: text;
+    -moz-select: text;
+    -ms-select: text;
+    user-select: text;
 }
 .thumbnailContainer{
     position: relative;

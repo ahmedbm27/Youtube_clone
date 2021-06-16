@@ -2,7 +2,6 @@
 import Video from '../components/videoLanding.svelte'
 import SideNav from "../components/sidenav.svelte"
 import {db} from "../firebase.js"
-let videos =[1,2,3,4,5,6,7,8,9,10,11,12]
 export let opened;
 
 
@@ -77,12 +76,13 @@ console.log(videos);
 } 
 
  */
-let data="";
+
+
+ let data ="";	
 let getAllVideos = async () =>{
     await  db.collection("ALL").doc("LvaVLDcVcMyTrw3PRYic").get().then((doc) => {
     if (doc.exists) {
-        data =doc.data();
-        
+       data = doc.data();
     } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
@@ -92,7 +92,7 @@ let getAllVideos = async () =>{
 });
 
 }
-getAllVideos()
+getAllVideos();
 
 
 
@@ -119,7 +119,7 @@ getAllVideos()
         overflow-y: scroll;
         height: 100vh;
         padding: 0 65px 0 65px;
-        margin-top: 24px;
+        margin-top: 24px ;
     }
     .videosContainer.smallSideNav{
         padding: 0 15px 0 15px;
