@@ -119,7 +119,7 @@ import { validate_slots } from "svelte/internal";
 
     <div class="bottomPart">
         <div class="channelLogo">
-            <img src="imgs/videos/thumbnails/1.jpg" alt="logo" />
+            <img src="imgs/channelLogo.jpg" alt="logo" />
         </div>
         <div class="videoInfo">
             <div class="title">{video.title}</div>
@@ -159,10 +159,7 @@ import { validate_slots } from "svelte/internal";
     height: 100%;
     
 }
-.thumbnailContainer .thumbnailImg{
-    
-    
-}
+
 .thumbnailContainer .thumbnailImg img{
     width: 100%;
     height: 100%;

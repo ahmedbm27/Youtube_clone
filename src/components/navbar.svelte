@@ -22,6 +22,7 @@ height: 56px;
 justify-content: space-between;
 align-items: center;
 padding: 0 13px 0 13px;
+
 }
 .leftPart,.rightPart,.searchBar{
 display: flex;
@@ -132,7 +133,7 @@ align-items: center;
         src="imgs/icons/menu.svg" 
         alt="menu"
         on:click={openCloseMenu}>
-        <img class="logo" src="imgs/logo.svg" alt="logo">
+        <a href="/"><img class="logo" src="imgs/logo.svg" alt="logo"></a>
 
     </div>
     

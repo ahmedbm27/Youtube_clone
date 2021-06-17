@@ -47,8 +47,8 @@ getAllVideos();
         align-items: baseline;
         overflow-y: scroll;
         height: 100vh;
-        padding: 0 65px 0 65px;
-        margin-top: 24px ;
+        padding: 24px 65px 0 65px;
+        
     }
     .videosContainer.smallSideNav{
         padding: 0 15px 0 15px;
