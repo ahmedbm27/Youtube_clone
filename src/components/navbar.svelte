@@ -120,7 +120,11 @@ align-items: center;
 
     
 }
-
+@media only screen and (max-width:800px){
+    .searchBar,.upload,.youtubeApp,.notification{
+        display:none;
+    }
+}
 </style>
 
 

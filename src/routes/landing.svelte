@@ -7,6 +7,7 @@ export let opened;
 
 
 
+
  let data ="";	
 let getAllVideos = async () =>{
     await  db.collection("ALL").doc("LvaVLDcVcMyTrw3PRYic").get().then((doc) => {
@@ -47,22 +48,32 @@ getAllVideos();
         align-items: baseline;
         overflow-y: scroll;
         height: 100vh;
-        padding: 24px 65px 0 65px;
-        
+        padding: 24px 15px 0 15px;
     }
     .videosContainer.smallSideNav{
-        padding: 0 15px 0 15px;
+        padding: 24px 65px 0 65px;
     }
-</style>
 
+    
+@media only screen and (max-width:1350px){
+    .videosContainer{
+        padding: 24px 15px 0 15px;
+    }
+}
+
+@media only screen and (max-width:800px){
+    .videosContainer{
+        padding: 24px 5px 0 5px;
+    }
+}
+</style>
+{#if Object.keys(data).length != 0}
 <div class="landingContainer">
-    <SideNav bind:opened={opened}/>
+    <SideNav class="sidenav" bind:opened={opened}/>
     <div class="videosContainer" class:smallSideNav={!opened} >
-        {#if Object.keys(data).length != 0}
         {#each data.videos as video }
         <Video video ={video} bind:opened={opened}/>
         {/each}
-        {/if}
-
     </div>
 </div>
+{/if}

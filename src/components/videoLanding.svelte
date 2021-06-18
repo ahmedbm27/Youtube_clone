@@ -126,7 +126,7 @@ import { validate_slots } from "svelte/internal";
             <div class="channelName">{video.channelTitle}</div>
             <div class="viewsDate">
                 <div class="views">{views} views</div>
-                •
+                <div class="dot">•</div>
                 <div class="date">{publishDate} ago</div>
             </div>
         </div>
@@ -206,19 +206,46 @@ import { validate_slots } from "svelte/internal";
     display: flex;
     flex-direction: row;
     font-size: 0.8rem;
+    flex-wrap: wrap;
  
 }
-.videoInfo .viewsDate .views{
-    margin-right: 5px;
+.videoInfo .viewsDate .dot{
+    margin:0 5px
 }
-.videoInfo .viewsDate .date{
-    margin-left: 5px;
-}
+
 .videoInfo .channelName {
     font-size: 0.9rem;
 }
 .container.smallSideNav{
     flex: 1 1 18%;
+}
+@media only screen and (max-width:1350px){
+    .container{
+        flex: 1 1 20%;
+    }
+    .container.smallSideNav{
+    flex: 1 1 20%;
+} 
+}
+@media only screen and (max-width:1100px){
+    .container{
+        flex: 1 1 23%;
+    }
+    .container.smallSideNav{
+    flex: 1 1 23%;
+} 
+}
+
+@media only screen and (max-width:800px){
+    .container{
+        flex: 1 1 50%;
+    }
+    .container.smallSideNav{
+    flex: 1 1 50%;
+} 
+.container{
+    margin: 0px 5px 30px 5px;
+}
 }
 </style>
 

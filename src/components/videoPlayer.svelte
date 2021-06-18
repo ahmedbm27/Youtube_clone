@@ -4,14 +4,40 @@ import {onMount} from 'svelte'
 import YouTube from 'svelte-youtube';
 import {db} from "../firebase.js"
 export let id
+
+
+let height;
+let width;
+let videoSizeChecker= () =>{
+let w = window.innerWidth;
+let h = window.innerHeight;
+if(w > 1754){
+  width = 1280;
+  height=720;
+}
+if(w < 1755 && w > 1114){
+  width = 1280 - (1755 - w);
+  height=720 - (1755-w)/2;
+}
+if(w < 1115 && w > 999){
+  width = 640;
+  height=360;
+}
+if(w < 1000){
+  width = 969 - (999-w);
+  height=534 - (999-w)/2;
+}
+return width,height
+}
+videoSizeChecker()
 let openReport = false;
 let exp =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig
 const options = {
-    height: '720',
-    width: '1280',
+    height: height,
+    width: width,
     //  see https://developers.google.com/youtube/player_parameters
     playerVars: {
-      autoplay: 0
+      autoplay: 1
     }
   };
 
@@ -51,13 +77,18 @@ console.log(video[0]);
 
 getAllVideos();
 
-
+window.addEventListener('resize',async ()=>{
+  videoSizeChecker();
+  console.log(width,height);
+  document.getElementsByClassName("videoPlayer")[0].childNodes[0].style.width=width+"px"
+  document.getElementsByClassName("videoPlayer")[0].childNodes[0].style.height=height+"px"
+})
 
 </script>
 
 <div class="PlayerContainer">
 {#if Object.keys(video).length != 0}
-<YouTube videoId={id} {options} />
+<YouTube videoId={id} {options} class="videoPlayer" />
 <div class="title">{video[0].title}</div>
 <div class="viewsDate">
   <div class="views">{video[0].statistics.viewCount} views</div>
@@ -95,6 +126,7 @@ getAllVideos();
 
 
 <style>
+ 
   .PlayerContainer{
     width: 100%;
     margin-right: 25px;
@@ -195,6 +227,12 @@ hr{
   max-width: 615px;
   font-size: 0.9rem;
   margin-left: 64px;
+}
+
+@media only screen and (max-width:999px){
+  .PlayerContainer{
+    margin-right: 0;
+  }
 }
 </style>
 
