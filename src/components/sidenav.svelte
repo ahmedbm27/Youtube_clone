@@ -1,6 +1,7 @@
 <script>
     let hidden = false
     export let opened;
+    export let player
 
     let openCloseMenu = () =>{
     opened = true;
@@ -142,6 +143,51 @@ hr{
     height: max-content;
 }
 }
+
+
+#defaultMenu.player{
+    display: none !important;
+}
+#smallMenu.player{
+    display: none !important;
+}
+#bigMenu.bigMenuOpen.player{
+    display: block;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    
+}
+#bigMenu.bigMenuNotOpen.player{
+    display: block;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left:-240px;
+        
+}
+
+    @keyframes slideMenuToRight {
+        from {left: -240px;}
+        to {left: 0;}
+    }
+    @keyframes slideMenuToLeft {
+        from {left: 0;}
+        to {left: -240px;}
+    }
+    #bigMenu.player .logoMenuBtn{
+        display: flex;
+    }
+    .background.bigMenuOpen.player{
+        background-color: rgba(0, 0, 0, 0.5);
+        display: block;
+        position: absolute;
+        z-index: 4;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+    }
 @media only screen and (max-width:1350px){
     #defaultMenu{
         display: none;
@@ -190,7 +236,7 @@ hr{
 }
 </style>
 
-<div class="container" class:smallSideNav={!opened} id="defaultMenu">
+<div class="container" class:smallSideNav={!opened} id="defaultMenu" class:player>
     <div class="logoMenuBtn">
         <div class="closeNav"><img src="imgs/icons/menu.svg" alt="ytb"></div>
         <div class="logo"><img src="imgs/logo.svg" alt="ytb"></div>
@@ -299,7 +345,7 @@ hr{
 
 <!--******Mobile Menu**** -->
 <!--Small Menu-->
-<div class="container smallSideNav" id="smallMenu">
+<div class="container smallSideNav" id="smallMenu" class:player>
     <div class="logoMenuBtn">
         <div class="closeNav"><img src="imgs/icons/menu.svg" alt="ytb"></div>
         <div class="logo"><img src="imgs/logo.svg" alt="ytb"></div>
@@ -332,7 +378,7 @@ hr{
 
 <!--Big Menu-->
 
-<div class="background" class:bigMenuOpen={!opened}>
+<div class="background" class:bigMenuOpen={!opened} class:player>
 <div class="container {opened ? "bigMenuNotOpen" : "bigMenuOpen"}" id="bigMenu" >
     <div class="logoMenuBtn">
         <div class="closeNav" on:click={openCloseMenu}><img src="imgs/icons/menu.svg" alt="ytb"></div>

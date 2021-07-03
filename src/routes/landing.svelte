@@ -63,7 +63,7 @@ getAllVideos();
 
 @media only screen and (max-width:800px){
     .videosContainer{
-        padding: 24px 5px 0 5px;
+        padding: 24px 0px 0 0px;
     }
 }
 </style>

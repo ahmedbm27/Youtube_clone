@@ -2,8 +2,9 @@
 import { validate_slots } from "svelte/internal";
 
 
-    export let video;
-    export let opened;
+export let video;
+export let opened;
+export let player=false;
 
     
 
@@ -107,17 +108,17 @@ import { validate_slots } from "svelte/internal";
     let views = convertStats();
 </script>
 
-<a href="/watch?v={video.id}"  class="container" class:smallSideNav={!opened}>
+<a href="/watch?v={video.id}"  class="container" class:smallSideNav={!opened} class:player>
    
     <div class="thumbnailContainer">
-        <div class="thumbnailImg">
+        <div class="thumbnailImg" >
             <img src={video.thumbnails.medium.url} alt="thumbnail" />
         </div>
         <div class="time">{videoTime}</div>
     </div>
    
 
-    <div class="bottomPart">
+    <div class="bottomPart" class:player>
         <div class="channelLogo">
             <img src="imgs/channelLogo.jpg" alt="logo" />
         </div>
@@ -145,7 +146,19 @@ import { validate_slots } from "svelte/internal";
     text-decoration: none; 
     
 }
-
+.container.player{
+    margin: 0;
+    flex-direction: row;
+}
+.container.player .thumbnailContainer{
+    margin-right: 10px;
+}
+.bottomPart.player{
+    margin-top: 0;
+}
+.bottomPart.player .channelLogo {
+    display: none;
+}
 .videoInfo .title{
     cursor: auto;
     -webkit-user-select: text;
@@ -237,14 +250,17 @@ import { validate_slots } from "svelte/internal";
 }
 
 @media only screen and (max-width:800px){
-    .container{
-        flex: 1 1 50%;
-    }
-    .container.smallSideNav{
-    flex: 1 1 50%;
+.container{
+    flex: 1 1 51%;
+}
+.container.smallSideNav{
+flex: 1 1 50%;
 } 
 .container{
-    margin: 0px 5px 30px 5px;
+    margin: 0px 0px 30px 0px;
+}
+.bottomPart{
+    margin-left: 30px;
 }
 }
 </style>

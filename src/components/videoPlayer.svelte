@@ -4,7 +4,7 @@ import {onMount} from 'svelte'
 import YouTube from 'svelte-youtube';
 import {db} from "../firebase.js"
 export let id
-
+export let data="";
 
 let height;
 let width;
@@ -37,45 +37,30 @@ const options = {
     width: width,
     //  see https://developers.google.com/youtube/player_parameters
     playerVars: {
-      autoplay: 1
+      autoplay: 0
     }
   };
 
 
 
 
-let video="";
-let data ="";
+let video =""
 let publishDate ="";
 let description =""
-let getAllVideos = async () =>{
-    await  db.collection("ALL").doc("LvaVLDcVcMyTrw3PRYic").get().then((doc) => {
-    if (doc.exists) {
-       data = doc.data();
-       video = data.videos.filter(obj => {
-        return obj.id === id
-        })
+let getMyvideo = async () =>{
+   
+      video = data.videos.filter(obj => {
+          return obj.id === id
+          })
         const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
         publishDate = new Date(video[0].publishTime)
         publishDate =  months[publishDate.getMonth()] + " " + publishDate.getDate() + ", " + publishDate.getFullYear()
-        
-       
-        
-
-console.log(video[0]);
-    } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-    }
-}).catch((error) => {
-    console.log("Error getting document:", error);
-});
 
 }
 
 
 
-getAllVideos();
+getMyvideo();
 
 window.addEventListener('resize',async ()=>{
   videoSizeChecker();
@@ -121,8 +106,10 @@ window.addEventListener('resize',async ()=>{
     .replace(/\n/g, "</br>").replace(exp,"<a href='$1' target='_blank'>$1</a>")
   }
 </div>
+<hr>
 {/if}
 </div>
+
 
 
 <style>

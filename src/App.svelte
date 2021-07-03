@@ -16,8 +16,8 @@
 		</Route>
 
 		<Route path="/watch" >
-			<Navbar/>
-			<Watch />
+			<Navbar bind:opened={opened}/>
+			<Watch bind:opened={opened}/>
 		</Route>
 
   </Router>
