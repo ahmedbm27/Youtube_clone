@@ -241,6 +241,7 @@ export let player=false;
 } 
 }
 @media only screen and (max-width:1100px){
+
     .container{
         flex: 1 1 23%;
     }
@@ -260,7 +261,8 @@ flex: 1 1 51%;
     margin: 0px 0px 30px 0px;
 }
 .bottomPart{
-    margin-left: 30px;
+    margin-left: 12px;
+    width: 95%;
 }
 }
 </style>

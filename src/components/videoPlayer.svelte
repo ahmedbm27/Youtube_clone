@@ -103,7 +103,7 @@ window.addEventListener('resize',async ()=>{
 <div class="description">
   {@html
     video[0].description.replace(/(#\S+)/g, '<a href="#" >$1</a>')
-    .replace(/\n/g, "</br>").replace(exp,"<a href='$1' target='_blank'>$1</a>")
+    .replace(/\n/g, "</br>").replace(exp,"<a style='line-break: anywhere' href='$1' target='_blank'>$1</a>")
   }
 </div>
 <hr>
@@ -217,12 +217,15 @@ hr{
 }
 
 @media only screen and (max-width:999px){
-  .PlayerContainer{
+.PlayerContainer{
     margin-right: 0;
   }
-  .description{
- 
+.description{
   margin-left: 0px;
+}
+
+.description a{
+  line-break: anywhere;
 }
 }
 </style>
