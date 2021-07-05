@@ -59,10 +59,16 @@ getAllVideos();
     .videosContainer{
         padding: 24px 15px 0 15px;
     }
+    .videosContainer.smallSideNav{
+        padding: 24px 15px 0 15px;
+    }
 }
 
 @media only screen and (max-width:800px){
     .videosContainer{
+        padding: 24px 0px 0 0px;
+    }
+    .videosContainer.smallSideNav{
         padding: 24px 0px 0 0px;
     }
 }

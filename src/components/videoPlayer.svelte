@@ -37,7 +37,7 @@ const options = {
     width: width,
     //  see https://developers.google.com/youtube/player_parameters
     playerVars: {
-      autoplay: 0
+      autoplay: 1
     }
   };
 

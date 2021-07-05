@@ -254,7 +254,7 @@ export let player=false;
     flex: 1 1 51%;
 }
 .container.smallSideNav{
-flex: 1 1 50%;
+flex: 1 1 51%;
 } 
 .container{
     margin: 0px 0px 30px 0px;

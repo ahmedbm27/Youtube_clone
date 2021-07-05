@@ -185,6 +185,7 @@ hr{
         position: absolute;
         z-index: 4;
         top: 0;
+        left: 0;
         width: 100vw;
         height: 100vh;
     }
@@ -379,7 +380,7 @@ hr{
 <!--Big Menu-->
 
 <div class="background" class:bigMenuOpen={!opened} class:player>
-<div class="container {opened ? "bigMenuNotOpen" : "bigMenuOpen"}" id="bigMenu" >
+<div class="container {opened ? "bigMenuNotOpen" : "bigMenuOpen"}" class:player id="bigMenu" >
     <div class="logoMenuBtn">
         <div class="closeNav" on:click={openCloseMenu}><img src="imgs/icons/menu.svg" alt="ytb"></div>
         <div class="logo"><img src="imgs/logo.svg" alt="ytb"></div>
