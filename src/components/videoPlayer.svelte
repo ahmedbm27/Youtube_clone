@@ -220,6 +220,10 @@ hr{
   .PlayerContainer{
     margin-right: 0;
   }
+  .description{
+ 
+  margin-left: 0px;
+}
 }
 </style>
 
